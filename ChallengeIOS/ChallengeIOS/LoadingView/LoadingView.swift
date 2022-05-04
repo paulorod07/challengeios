@@ -27,8 +27,11 @@ class LoadingView: UIView {
     }
     
     private var animationView: AnimationView?
-    static let sharedInstance = LoadingView()
+    
+    static let sharedInstance = LoadingView(loadingName: .loadingSpinner)
+    
     private var loadingStatus: LoadingStatus = .stopped
+    
     private var loadingName: LoadingName?
     
     init(loadingName:LoadingName? = .loadingSpinner) {

@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var loadingView: LoadingView?
     
     override func loadView() {
-        loadingView = LoadingView(loadingName: .loadingSpinner)
+        loadingView = LoadingView.sharedInstance
         view = loadingView
     }
     
