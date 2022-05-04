@@ -8,12 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var loadingView: LoadingView?
+    
+    override func loadView() {
+        loadingView = LoadingView(loadingName: .loadingSpinner)
+        view = loadingView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .magenta
+        loadingView?.start()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.loadingView?.stop()
+        }
     }
-
 
 }
 
